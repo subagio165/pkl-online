@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>isi konten</h1>
+
+<div class="content-section">
+	<form action="/new_post" method="POST">
+		{{form.hidden_tag()}}
+		<fieldset class="form-group">
+			<legend>Pengumuman</legend>
+			 <div class="form-group">
+                {{ form.judul.label(class="form-control-label") }}
+                {% if form.judul.errors %}
+                    {{ form.judul(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.judul.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.judul(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.isi.label(class="form-control-label") }}
+                {% if form.isi.errors %}
+                    {{ form.isi(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.isi.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.isi(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+		</fieldset>
+		<div class="form-group">
+			{{form.submit}}
+		</div>
+	</form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{%  block content%}
+
+{% if current_user.is_authenticated %}
+	<h1 align="center" >Selamat Datang {{current_user.username}}</h1>
+{% else %}
+	<h1 align="center" >Selamat Datang di PKL UMSIDA</h1>
+{% endif %}
+<br> 
+<div>
+<img src="{{url_for('static', filename='umsida.png')}}" style="width:100%" >
+</div>
+<br>
+
+{% for post in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <b>{{ post.author.username }}</b>
+              <small class="text-muted">{{ post.tanggal.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.danger) }}">{{ post.judul }}</a></h2>
+            <p class="article-content">{{ post.isi }}</p>
+          </div>
+        </article>
+    {% endfor %}
+
+
+
+{% endblock %}

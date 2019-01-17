@@ -1,0 +1,129 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  
+<h1>tambah dosen</h1>
+
+  <div class="content-section">
+     <form action="/tambah_dosen" method="POST">
+      <div class="form-group">
+        <label>Nidn:</label>
+        {% if form.nidn.errors %}
+            {{ form.nidn(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.nidn.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.nidn(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+      <div class="form-group">
+        <label>Nama:</label>
+        {% if form.nama.errors %}
+            {{ form.nama(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.nama.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.nama(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+      <div class="form-group">
+        <label>Fakultas:</label>
+        {% if form.fakultas.errors %}
+            {{ form.fakultas(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.fakultas.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.fakultas(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+      <div class="form-group">
+        <label>Alamat:</label>
+        {% if form.alamat.errors %}
+            {{ form.alamat(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.alamat.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.alamat(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+      <div class="form-group">
+        <label>Telpon:</label>
+        {% if form.telpon.errors %}
+            {{ form.telpon(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.telpon.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.telpon(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+
+            <div class="form-group">
+        <label>tahun:</label>
+        {% if form.tahun.errors %}
+            {{ form.tahun(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.tahun.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.tahun(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+
+      <div class="form-group">
+        <label>Email:</label>
+        {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.email(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>
+      <div class="form-group">
+        <label>kuota:</label>
+        {% if form.kuota.errors %}
+            {{ form.kuota(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.kuota.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.kuota(class="form-control form-control-lg") }}
+        {% endif %}
+
+      </div>      
+
+      <div class="form-group">
+        {{form.submit(class="btn btn-primary")}}
+      </div>
+    </form>
+  </div>
+{% endblock %}

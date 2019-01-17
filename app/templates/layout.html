@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>PKL UMSIDA - {{ title }} </title>
+	{% else %}
+		<title>PKL UMSIDA</title>
+	{% endif %}
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	  	{% if current_user.is_authenticated %}
+	  	<div class="navbar-header">
+	      <a class="navbar-brand" href="/">PKL UMSIDA</a>
+	    </div>
+	  		<ul class="nav navbar-nav">
+	     		<li class="active"><a href="/home">Home</a></li>
+	      		<li><a href="/edit_dosen">Dosen</a></li>
+	      		<li><a href="/pedoman"">Pedoman PKL</a></li>
+	      		<li><a href="new_post"">Pengumuman</a></li>
+	    	</ul>
+	    	<ul class="nav navbar-nav navbar-right">
+		      	<li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout </a></li>
+		    </ul>
+	  	{% else %}
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">PKL UMSIDA</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="/home">Home</a></li>
+	      <li><a href="/dosen">Dosen</a></li>
+	      <li><a href="/pedoman"">Pedoman PKL</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="/registrasi"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	    </ul>
+	    {% endif %}
+	  </div>
+	</nav>
+
+ 	<div class="container">
+ 		     {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+ 		{% block content %} {% endblock %}
+ 	</div>
+</body>
+</html>
